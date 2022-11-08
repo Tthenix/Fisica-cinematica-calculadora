@@ -11,18 +11,25 @@ obetenerDistancia.addEventListener("change", getDistancia)
 
 
 function getVelocidad(){ 
-    const velocidadValue = obtenerVelocidad.value;
+    const velocidadValue = Number(obtenerVelocidad.value);
+    console.log("Velocidad: ",velocidadValue)
+
+    console.log(typeof(velocidadValue))
     if(velocidadValue < 0){
         response("No se puede ingresar la velocidad en negativo, ingrese de nuevo la velocidad (+)")
     }
     else{
         clearResponse()
         console.log(velocidadValue)
-    } 
+    }
+    return(calcular(velocidadValue))
 }
 
 function getDistancia(){ 
-    const distanciaValue = obetenerDistancia.value;
+    const distanciaValue = Number(obetenerDistancia.value);
+    console.log("distancia: ", distanciaValue)
+    console.log(typeof(distanciaValue))
+
     if(distanciaValue < 0){
         response("No se puede ingresar la distancia en negativo, ingrese de nuevo la velocidad (+):")
     }
@@ -30,10 +37,13 @@ function getDistancia(){
         clearResponse()
         console.log(distanciaValue)
     }      
+    return(calcular(distanciaValue))
 }
 
 function getAceleracion(){ 
-    const aceleracionValue = obtenerAceleracion.value;
+    const aceleracionValue = Number(obtenerAceleracion.value);
+    console.log("aceleracion : ", aceleracionValue)
+    console.log(typeof(aceleracionValue))
     if(aceleracionValue > 0){
         response("No se puede ingresar la desaceleración en Positivo, vuelve a ingresarla en Negativo (-)")
     }
@@ -42,26 +52,38 @@ function getAceleracion(){
         console.log(aceleracionValue)
         
     }      
+    return(calcular(aceleracionValue))
 }
 
-function calcular(){ 
-    const velocidadValue = document.getElementById("velocidad")
-    const aceleracionValue = document.getElementById("aceleracion")
-    const distanciaValue = document.getElementById("distancia")
+function calcular(velocidadValue,distanciaValue,aceleracionValue){ 
     
-    const calc= 0 - velocidadValue
-    const tie= calc / aceleracionValue
-    const dist=0+velocidadValue+0.5*aceleracionValue*(tie*tie)
+    const velocidad = +(document.getElementById("velocidad")).value
+    const aceleracion = +(document.getElementById("aceleracion")).value
+    const distancia = +(document.getElementById("distancia")).value
 
-    if(dist>distanciaValue) {
+    const calc= 0 - Number(velocidad)
+    const tie= calc / aceleracion
+    const dist=0+velocidad+0.5*aceleracion*(tie*tie)
+    let newCalc = Number(calc);
+
+    console.log ("Este es el calc: ", newCalc)
+    console.log(typeof(calc));
+  
+    if(dist > distancia) {
         console.log("El objeto A ha colisionado con el Objeto B")
-        c = velocidadValue + (1/2)*(0-velocidadValue)
-        c2 = distanciaValue/c
-        acel = (0-velocidadValue)/c2
+        c = velocidad + (1/2)*(0-velocidad)
+        c2 = distancia/c
+        acel = (0-velocidad)/c2
         const Respuesta = "El objeto B necesitaba frenar a "+ acel + "m/s2 para no colisionar, colisionaron en" + tie + "segunods"
         console.log(Respuesta)
         response(Respuesta)
     }
+    else{
+        dist2= distancia - dist
+        const Respuesta= "Los objetos quedaron a"+dist2+"metros de colisionar.Desaceleraron en"+tie+ "segundos"
+        response(Respuesta)
+    }
+
 }
 
 
