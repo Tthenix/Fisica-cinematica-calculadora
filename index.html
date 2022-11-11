@@ -6,40 +6,74 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="index.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <title>Calculadora de fisica cinematica</title>
 </head>
 <body>
     <div class="wrapper">
 
         <div class="box a">    
-            <div class="col">Ingrese la velocidad en m/s:</div>
-            <input id="velocidad" type="number" name="tipo_de_dato"/>
+            <div class="col" style="font-size:2vw;">Ingrese la velocidad en m/s (+):</div>
+            <!-- <input id="velocidad" type="number" name="tipo_de_dato"/> -->
+
+            <div class="input-group flex-nowrap">
+              <input  style="font-size:2vw" type="number" id="velocidad" class="form-control" placeholder="Ingrese valor (+)" aria-label="Username" aria-describedby="addon-wrapping">
+            </div>
         </div>
 
         <div class="box b">
-           <div>Fisica cinematica</div>
-           <div>Resultados: </div>
+           <div style="font-size:2vw;">Fisica cinematica</div>
+           <div style="font-size:2vw;">Resultados: </div>
           
 
-            <div id="idResponse" class="container-res">
+            <div id="idResponse" style="font-size:2vw" class="container-res">
             
             </div>
         </div>
 
         <div class="box c">
-            <div class="col">Ingrese la distancia del Objeto A a el Objeto B (en metros):</div>
-            <input id="distancia" type="number" name="tipo_de_dato"/>
+            <div class="col" style="font-size:2vw;">Ingrese la distancia del Objeto A a el Objeto B (en metros):</div>
+            <div class="input-group flex-nowrap">
+              <input  style="font-size:2vw" type="number" id="distancia" class="form-control" placeholder="Ingrese valor (+)" aria-label="Username" aria-describedby="addon-wrapping">
+            </div>
          
 
             
         </div>
         
         <div class="box d"> 
-            <div class="col">Ingrese a que deseceleracion el Objeto B desacelera (-): </div>
-            <input id="aceleracion" type="number" name="tipo_de_dato"/>
+            <div class="col" style="font-size:2vw;">Ingrese a que deseceleracion el Objeto B desacelera (-): </div>
+            <div class="input-group flex-nowrap">
+              <input  style="font-size:2vw" type="number" id="aceleracion" class="form-control" placeholder="Ingrese valor (+)" aria-label="Username" aria-describedby="addon-wrapping">
+            </div>
         </div>
-        <button class="button-81" onclick="calcular()">Calcular</button>
+        <button class="btn btn-outline-light btn-floating m-1" id="btn" style="font-size:2vw;">Calcular</button>
       </div>
+
+      <footer class="text-center text-white">
+        <!-- Grid container -->
+        <div class="container p-4">
+          <!-- Section: Social media -->
+          <section class="mb-4">
+            <!-- Linkedin -->
+            <a class="btn btn-outline-light btn-floating m-0" href="https://www.linkedin.com/in/nahuel-quiroga-06287122a/" role="button"
+              ><i class="bi bi-linkedin" style="font-size: 2rem"></i> <!--<img src="./imagenes/link.png" width="8%" height="10%">-->
+            ></a>
+            <!-- Github -->
+            <a class="btn btn-outline-light btn-floating m-1" href="https://github.com/Tthenix" role="button"
+              ><i class="bi bi-github" style="font-size: 2rem"></i>
+            ></a>
+          </section>
+          <!-- Section: Social media -->
+      
+      
+          <!-- Section: Text -->
+          <section class="mb-3">
+            <p style="font-size:2vw;">
+              Hecho por Nahuel Quiroga  
+            </p>
+        </div>
+      </footer>
      
       <script src="index.js"></script>
       
